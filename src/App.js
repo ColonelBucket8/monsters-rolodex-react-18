@@ -6,6 +6,7 @@ import "./App.css";
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [searchField, setSearchField] = useState("");
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   const onSearchChange = (evt) => {
     const searchFieldString = evt.target.value.toLocaleLowerCase();
@@ -18,9 +19,12 @@ const App = () => {
       .then((data) => setMonsters(data));
   }, []);
 
-  const filteredMonsters = monsters.filter((monster) => {
-    return monster.name.toLocaleLowerCase().includes(searchField); 
-  });
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    });
+    setFilteredMonsters(newFilteredMonsters);
+  }, [monsters, searchField]);
 
   return (
     <div className="App">
