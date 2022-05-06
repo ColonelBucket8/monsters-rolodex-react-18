@@ -7,12 +7,20 @@ import "./App.css";
 export type Monster = {
   id: string;
   name: string;
+  username: string;
   email: string;
+  phone: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+  }
 };
 
 const App = () => {
   const [monsters, setMonsters] = useState<Monster[]>([]);
-  const [searchField, setSearchField] = useState("");
+  const [searchField, setSearchField] = useState<string>("");
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {

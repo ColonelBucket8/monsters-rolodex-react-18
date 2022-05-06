@@ -1,14 +1,14 @@
-import { Monster } from "../../App"
+import { Monster } from "../../App";
 import "./card.style.css";
 
 type CardProps = {
-    monster: Monster;
-}
+  monster: Monster;
+};
 
 const Card = ({ monster }: CardProps) => {
-    const { id, name, email } = monster;
+  const { id, name, email, username, phone, address } = monster;
 
-    return (
+  return (
     <div key={id} className="card-container">
       <img
         className="card-container"
@@ -17,7 +17,12 @@ const Card = ({ monster }: CardProps) => {
         src={`https://robohash.org/${id}?set=set2&size=180x180`}
       />
       <h2>{name}</h2>
+      <p>{username}</p>
       <p>{email}</p>
+      <p>{phone}</p>
+      <p>
+        {address.street}, {address.suite}, {address.city}, {address.zipcode}
+      </p>
     </div>
   );
 };
