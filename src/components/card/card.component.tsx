@@ -23,6 +23,11 @@ const Card = ({ monster }: CardProps) => {
       <p>
         {address.street}, {address.suite}, {address.city}, {address.zipcode}
       </p>
+      <p>
+        latitude: {address.geo.lat}
+        <br />
+        longitude: {address.geo.lng}
+      </p>
     </div>
   );
 };

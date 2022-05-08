@@ -15,6 +15,10 @@ export type Monster = {
     suite: string;
     city: string;
     zipcode: string;
+    geo: {
+      lat: number;
+      lng: number;
+    }
   }
 };
 
